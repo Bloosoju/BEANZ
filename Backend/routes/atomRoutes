@@ -1,0 +1,9 @@
+const express = require('express');
+const { createAtom, getAtoms } = require('../controllers/atomController');
+const { authMiddleware } = require('../middlewares/authMiddleware');
+const router = express.Router();
+
+router.post('/', authMiddleware, createAtom);
+router.get('/', getAtoms);
+
+module.exports = router;
